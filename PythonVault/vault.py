@@ -31,8 +31,8 @@ class vaultFile:                                                                
         account.close()                                                                             #closes account file
 
 class vaultOperations:                                                                              #class that manages transactions
-	def joinVault(self):
-        name = raw_input ("please enter your name: ")                                               #takes new user's name for storage
+    def joinVault(self):
+        name = raw_input("please enter your name: ")                                               #takes new user's name for storage
         PIN = input ("Please enter your desired PIN: ")                                             #takes user's desired PIN for storage
         balance = input ("What is your beginning balance?: ")                                       #takes users beginning balance for storage
         vf = vaultFile()                                                                            #assigns vaultFile object to variable vf
@@ -65,7 +65,7 @@ class vaultOperations:                                                          
                     10 dollar fee deducted.")                                                       #if the new total balance is less than zero,
                 time.sleep(1)                                                                       #the transaction cannot be performed, $10 fee charged
 
-	def deposit(self):
+    def deposit(self):
         PIN = input ("Please enter your existing PIN: ")
         account = open(str(PIN)+'.txt','r+')                                                        #opens account file for both reading ad rewriting
         lines = account.readlines()                                                                 #reads lines of file
@@ -80,7 +80,7 @@ class vaultOperations:                                                          
         print(name+", your new total balance comes to a total of "+newbalance+" dollars.")          #prompts user of their new total balance in account
         time.sleep(1)
 
-	def getBalance(self):
+    def getBalance(self):
         PIN = input ("Please enter your existing PIN: ")
         account = open(str(PIN)+'.txt','r')                                                         #opens account file for reading only
         lines = account.readlines()                                                                 #reads lines of file
@@ -89,7 +89,7 @@ class vaultOperations:                                                          
         print "Hello "+name+".  Your balance is "+str(currentbal)+" dollars."                       #prompts user of their current balance
         account.close()
 
-	def checkBalance(self):
+    def checkBalance(self):
         PIN = input ("Please enter your existing PIN: ")
         account = open(str(PIN)+'.txt','r')                                                         #opens account for reading
         lines = account.readlines()                                                                 #reads lines in file
@@ -103,7 +103,7 @@ class vaultOperations:                                                          
     def quit(self):
         print("Your money's safe with us, goodbye.")
         time.sleep(.5)
-        break
+        #break
 
     def invalidInput(self):
         print("Sorry, That is not valid input.")
@@ -123,7 +123,7 @@ print("Hello and Welcome to Python Vault.")                                     
 
 time.sleep(1)
 
-myVault = Vaultoperations()                                                                         #assigns Vaultoperations to variable myVault
+myVault = vaultOperations()                                                                         #assigns Vaultoperations to variable myVault
 while 1:
         transaction = raw_input("Would you like to: (j)-join python vault  \
             (w)-withdraw money  (d)-deposit money  (g)-get balance  (c)-check balance  (q)-quit")   #prompts user of transaction choices
